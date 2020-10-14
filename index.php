@@ -8,6 +8,10 @@ $lunch_random = rand(1, 3);
 $dinner_random = rand(1, 3);
 $total_amount = 0;
 
+$lowest_breakfast = '';
+$lowest_lunch = '';
+$lowest_dinner = '';
+
 $breakfast_price1 = 6.5;
 $breakfast_price2 = 7;
 $breakfast_price3 = 9;
@@ -52,6 +56,20 @@ if ($dinner_random === 1) {
     $dinner = $dinner_price3;
     $total_amount += $dinner;
 }
+
+$min_breakfast = min($breakfast_price1, $breakfast_price2, $breakfast_price3);
+if ($min_breakfast === $breakfast) {
+    $lowest_breakfast = 'Lowest price!';
+}
+$min_lunch = min($lunch_price1, $lunch_price2, $lunch_price3);
+if ($min_lunch === $lunch) {
+    $lowest_lunch = 'Lowest price!';
+}
+$min_dinner = min($dinner_price1, $dinner_price2, $dinner_price3);
+if ($min_dinner === $dinner) {
+    $lowest_dinner = 'Lowest price!';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -113,15 +131,22 @@ if ($dinner_random === 1) {
 <body class="body">
 <h1><?php print $date; ?></h1>
 <h2><?php print $day; ?></h2>
+
 <h3>Breakfast</h3>
 <div class="food_card breakfast-<?php print $breakfast_random; ?>"></div>
 <p><?php print $breakfast; ?></p>
+<p><?php print $lowest_breakfast; ?></p>
+
 <h3>Lunch</h3>
 <div class="food_card lunch-<?php print $lunch_random; ?>"></div>
 <p><?php print $lunch; ?></p>
+
+
 <h3>Dinner</h3>
 <div class="food_card dinner-<?php print $dinner_random; ?>"></div>
 <p><?php print $dinner; ?></p>
+
+
 <p>Total amount: <?php print $total_amount ?></p>
 </body>
 </html
