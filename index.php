@@ -1,61 +1,71 @@
 <?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
-$card_one = rand(1, 11);
-$card_two = rand(1, 11);
-$card_three = rand(1, 11);
-$card_four = rand(1, 11);
-
-$player_cards = $card_one + $card_two;
-$opponent_cards = $card_three + $card_four;
-
-if ($player_cards > $opponent_cards) {
-    $winner = 'Player';
-    $winner_points = $player_cards;
-} elseif ($player_cards == $opponent_cards) {
-    $winner = 'TIE';
-    $winner_points = $player_cards;
-} else {
-    $winner = 'Opponent';
-    $winner_points = $opponent_cards;
-}
-?>
-
+$date = date('Y-m-d', strtotime('+ 1 day'));
+$day = date('l', strtotime('+ 1 day'));; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cards</title>
     <style>
-        .card {
-            border: 2px solid red;
+        .body {
+            font-family: Bahnschrift;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .food_card {
             width: 190px;
             height: 200px;
-            display: flex;
-            justify-content: center;
-            font-size: 25px;
-            margin-top: 20px;
-            padding-top: 40px;
-            background-image: url('https://i.pinimg.com/474x/47/38/83/4738831b11d99e80bcf5e1b4087b6b9c.jpg');
             background-size: cover;
-            color: red;
         }
 
-        .d-flex {
-            display: flex;
+        .breakfast-1 {
+            background-image: url('https://images-na.ssl-images-amazon.com/images/I/61fZ%2BYAYGaL._SX569_.jpg');
+        }
+
+        .breakfast-2 {
+            background-image: url('https://media.healthyfood.com/wp-content/uploads/2017/04/HTC-natural-yoghurt-iStock_58226440-1024x825.jpg');
+        }
+
+        .breakfast-3 {
+            background-image: url('https://www.candywarehouse.com/item-images/126889-01_skittles-candy-54-ounce-bag.jpg');
+        }
+
+        .lunch-1 {
+            background-image: url('https://www.lrt.lt/img/2020/08/04/698167-377182-756x425.jpg');
+        }
+
+        .lunch-2 {
+            background-image: url('https://prod-wolt-venue-images-cdn.wolt.com/5b162dd2983060000e08f664/e71eb95c1e927cc8c8543fa3f04c2c44-edits/23bbe301acdb95611d1bd82677718825');
+        }
+
+        .lunch-3 {
+            background-image: url('https://img-global.cpcdn.com/recipes/6a1810e72c8b80fa/400x400cq70/photo.jpg');
+        }
+
+        .dinner-1 {
+            background-image: url("https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2020/05/GettyImages-1044350714.jpg");
+        }
+
+        .dinner-2 {
+            background-image: url("https://digitalcontent.api.tesco.com/v2/media/ghs/1183490f-b986-4ccd-8bf7-8254fa96eed0/snapshotimagehandler_1479726212.jpeg?h=540&w=540");
+        }
+
+        .dinner-3 {
+            background-image: url('https://www.liquor.com/thmb/SXNhMbygwzNU_L5TVLkBa3pttLI=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__02__13090826__pina-colada-720x720-recipe-253f1752769447f6998afd2b9469c24e.jpg');
         }
     </style>
 </head>
-<body>
-<h3>Player gets: <?php print $player_cards; ?></h3>
-<div class="d-flex">
-<div class="card">Card one is: <?php print $card_one; ?></div>
-<div class="card">Card two is: <?php print $card_two; ?></div>
-</div>
-<h3>Opponent gets: <?php print $opponent_cards; ?></h3>
-<div class="d-flex">
-<div class="card">Card one is: <?php print $card_three; ?></div>
-<div class="card">Card two is: <?php print $card_four; ?></div>
-</div>
-<h2>The winner is: <?php print $winner; ?> with <?php print $winner_points; ?></h2>
+<body class="body">
+<h1><?php print $date; ?></h1>
+<h2><?php print $day; ?></h2>
+<h3>Breakfast</h3>
+<div class="food_card breakfast-<?php print rand(1, 3); ?>"></div>
+<h3>Lunch</h3>
+<div class="food_card lunch-<?php print rand(1, 3); ?>"></div>
+<h3>Dinner</h3>
+<div class="food_card dinner-<?php print rand(1, 3); ?>"></div>
 </body>
 </html
