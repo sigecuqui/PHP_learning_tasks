@@ -1,7 +1,58 @@
 <?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
 $date = date('Y-m-d', strtotime('+ 1 day'));
-$day = date('l', strtotime('+ 1 day'));; ?>
+$day = date('l', strtotime('+ 1 day'));
+
+$breakfast_random = rand(1, 3);
+$lunch_random = rand(1, 3);
+$dinner_random = rand(1, 3);
+$total_amount = 0;
+
+$breakfast_price1 = 6.5;
+$breakfast_price2 = 7;
+$breakfast_price3 = 9;
+
+$lunch_price1 = 10;
+$lunch_price2 = 8.5;
+$lunch_price3 = 9.5;
+
+$dinner_price1 = 12;
+$dinner_price2 = 11.5;
+$dinner_price3 = 10.5;
+
+if ($breakfast_random === 1) {
+    $breakfast = $breakfast_price1;
+    $total_amount += $breakfast;
+} elseif ($breakfast_random === 2) {
+    $breakfast = $breakfast_price2;
+    $total_amount += $breakfast;
+} else {
+    $breakfast = $breakfast_price3;
+    $total_amount += $breakfast;
+}
+
+if ($lunch_random === 1) {
+    $lunch = $lunch_price1;
+    $total_amount += $lunch;
+} elseif ($lunch_random === 2) {
+    $lunch = $lunch_price2;
+    $total_amount += $lunch;
+} else {
+    $lunch = $lunch_price3;
+    $total_amount += $lunch;
+}
+
+if ($dinner_random === 1) {
+    $dinner = $dinner_price1;
+    $total_amount += $dinner;
+} elseif ($dinner_random === 2) {
+    $dinner = $dinner_price2;
+    $total_amount += $dinner;
+} else {
+    $dinner = $dinner_price3;
+    $total_amount += $dinner;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +66,7 @@ $day = date('l', strtotime('+ 1 day'));; ?>
             justify-content: center;
             align-items: center;
         }
+
         .food_card {
             width: 190px;
             height: 200px;
@@ -62,10 +114,14 @@ $day = date('l', strtotime('+ 1 day'));; ?>
 <h1><?php print $date; ?></h1>
 <h2><?php print $day; ?></h2>
 <h3>Breakfast</h3>
-<div class="food_card breakfast-<?php print rand(1, 3); ?>"></div>
+<div class="food_card breakfast-<?php print $breakfast_random; ?>"></div>
+<p><?php print $breakfast; ?></p>
 <h3>Lunch</h3>
-<div class="food_card lunch-<?php print rand(1, 3); ?>"></div>
+<div class="food_card lunch-<?php print $lunch_random; ?>"></div>
+<p><?php print $lunch; ?></p>
 <h3>Dinner</h3>
-<div class="food_card dinner-<?php print rand(1, 3); ?>"></div>
+<div class="food_card dinner-<?php print $dinner_random; ?>"></div>
+<p><?php print $dinner; ?></p>
+<p>Total amount: <?php print $total_amount ?></p>
 </body>
 </html
