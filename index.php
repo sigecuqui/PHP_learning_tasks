@@ -91,6 +91,10 @@ if ($min_dinner === $dinner) {
             background-size: cover;
         }
 
+        h4 {
+            font-size: 30px;
+        }
+
         .breakfast-1 {
             background-image: url('https://images-na.ssl-images-amazon.com/images/I/61fZ%2BYAYGaL._SX569_.jpg');
         }
@@ -146,7 +150,6 @@ if ($min_dinner === $dinner) {
 <div class="food_card dinner-<?php print $dinner_random; ?>"></div>
 <p><?php print $dinner; ?></p>
 
-
-<p>Total amount: <?php print $total_amount ?></p>
+<h4>Total amount: <?php print $total_amount ?> eur</h4>
 </body>
 </html
