@@ -1,20 +1,23 @@
 <?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
-$distance = rand(200, 1000);
-$consumption = 7.5;
-$price_1 = 1.3;
-$my_money = 100;
+$grizai_velai = rand(0, 1);
+$grizai_isgeres = rand(0, 1);
 
-$fuel_total = $distance * $consumption / 100;
-$price_trip = $fuel_total * $price_1;
-
-if ($my_money >= $price_trip) {
-    $available_trip = 'įperkama';
-} else {
-    $available_trip = 'neįperkama';
+if($grizai_velai) {
+    if ($grizai_isgeres) {
+        $aukselis_ar_sudelis = 'Grįžai vėlai ir išgėręs';
+    } else {
+        $aukselis_ar_sudelis = 'Grįžai vėlai';
+    }
 }
-
-$trip_cost = number_format($price_trip, 2);
+else {
+    if($grizai_isgeres) {
+        $aukselis_ar_sudelis = 'Grįžai išgėręs';
+    }
+    else{
+        $aukselis_ar_sudelis = 'Nieko nepadarei';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,15 +26,9 @@ $trip_cost = number_format($price_trip, 2);
     <title>Dat Variables, operators, Bitsh</title>
 </head>
 <body>
-<h1>Kelionės skaičiuoklė</h1>
-<ul>
-    <li>Nuvažiuota distancija: <?php print $distance; ?> km</li>
-    <li>Sunaudota <?php print $fuel_total; ?> l kuro.</li>
-    <li>Kaina: <?php print $trip_cost; ?> pinigų</li>
-    <li>Turimi pinigai: <?php print $my_money; ?></li>
-</ul>
-<hr>
-<p>Išvada: Kelionė <?php print $available_trip; ?>
-</p>
+<h1>Buitinė skaičiuoklė</h1>
+<h2>
+    Situacija: <?php print $aukselis_ar_sudelis ;?>
+</h2>
 </body>
 </html
