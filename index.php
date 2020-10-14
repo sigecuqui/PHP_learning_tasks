@@ -1,20 +1,24 @@
 <?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
-$bin_vol = 40;
-$bin_heap_vol = rand(5, 10);
-$trash_per_day = 15;
-$days = floor(($bin_vol + $bin_heap_vol) / $trash_per_day);
+$distance = rand(50, 400);
+$consumption = 7.5;
+$price_1 = 1.3;
+$fuel_total = $distance * $consumption / 100;
+$price_trip = $fuel_total * $price_1;
+$trip_cost = number_format($price_trip, 2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dat Variables, Bitsh</title>
+    <title>Dat Variables, operators, Bitsh</title>
 </head>
 <body>
-<h1>Šiukšlių prognozė</h1>
-<p>Turima šiukšlinė - <?php print $bin_vol; ?></p>
-<p>Žmona nieko nesako, kol kaupas neviršija <?php print $bin_heap_vol; ?> litrų</p>
-<h3>Išvada: Nieko nedarysiu <?php print $days; ?> dienas</h3>
+<h1>Kelionės skaičiuoklė</h1>
+<ul>
+    <li>Nuvažiuota distancija: <?php print $distance; ?> km</li>
+    <li>Sunaudota <?php print $fuel_total; ?> l kuro.</li>
+    <li>Kaina: <?php print $trip_cost; ?> pinigų</li>
+</ul>
 </body>
 </html
