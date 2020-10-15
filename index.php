@@ -1,60 +1,48 @@
-<?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
-$hour = date('h') * 30;
-$minute = date('i') * 6;
-$second = date('s') * 6;
+$minutes = abs(date('i') - 59);
+$minutes_remain = $minutes % 5;
+$seconds = abs(date('s') - 59);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <title>Laikrodis</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .clock-body {
-            background-image: url('https://webstockreview.net/images/clock-clipart-black-and-white-19.png');
-            width: 600px;
-            height: 600px;
-            background-size: cover;
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .arrow {
-            position: absolute;
-            width: 5px;
-            height: 200px;
-            top: 100px;
-            transform-origin: 10% 100%;
-        }
-
-        .arrow--hour {
-            background: blue;
-            transform: rotate(<?php print $hour;?>deg);
-        }
-
-        .arrow--minute {
-            background: red;
-            transform: rotate(<?php print $minute;?>deg);
-        }
-
-        .arrow--second {
-            background: green;
-            transform: rotate(<?php print $second;?>deg);
-        }
-    </style>
+    <meta charset='utf-8'>
+    <title>Joint’o Load</title>
 </head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vH;
+    }
+
+    .joint-smoked {
+        background-image: url('./burned.png');
+        background-size: cover;
+        width: <?php print $minutes_remain.$seconds/100; ?>%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+    }
+
+    .joint {
+        position: relative;
+        background-image: url('./joint.png');
+        background-size: cover;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+    }
+</style>
 <body>
-<div class="clock-body">
-    <div class="arrow arrow--hour"></div>
-    <div class="arrow arrow--minute"></div>
-    <div class="arrow arrow--second"></div>
+<div class='joint'>
+    <div class='joint-smoked'></div>
 </div>
+<p>Liko: <?php print $minutes_remain . ':' . $seconds; ?> </p>
 </body>
-</html
+</html>
