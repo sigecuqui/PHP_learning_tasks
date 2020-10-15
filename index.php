@@ -1,65 +1,60 @@
 <?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
-$sunny = rand(0, 1);
-$rainy = rand(0, 1);
-if ($sunny) {
-    if ($rainy) {
-        $weather_class = 'weather--sunny-rainy';
-        $weather_text = 'Sunny, but it is a bit rainy';
-    } else {
-        $weather_class = 'weather--sunny';
-        $weather_text = 'It is sunny';
-    }
-} else {
-    if ($rainy) {
-        $weather_class = 'weather--cloudy-rainy';
-        $weather_text = 'Rainy';
-    } else {
-        $weather_class = 'weather--cloudy';
-        $weather_text = 'Cloudy';
-    }
-}
+$hour = date('h') * 30;
+$minute = date('i') * 6;
+$second = date('s') * 6;
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Orai</title>
+    <title>Laikrodis</title>
     <style>
-        .weather--sunny {
-            background-image: url('https://icons.iconarchive.com/icons/icons-land/weather/256/Sunny-icon.png');
-            width: 200px;
-            height: 200px;
-            background-size: cover;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .weather--sunny-rainy {
-            background-image: url('https://icons-for-free.com/iconfiles/png/512/cloudy+rain+sunny+weather+icon-1320196634753156841.png');
-            width: 200px;
-            height: 200px;
+        .clock-body {
+            background-image: url('https://webstockreview.net/images/clock-clipart-black-and-white-19.png');
+            width: 600px;
+            height: 600px;
             background-size: cover;
+            position: relative;
+            display: flex;
+            justify-content: center;
         }
 
-        .weather--cloudy-rainy {
-            background-image: url('https://png.pngtree.com/png-vector/20190822/ourlarge/pngtree-rain-icon-sky-filled-with-cartoon-clouds-png-image_1699315.jpg');
-            width: 200px;
+        .arrow {
+            position: absolute;
+            width: 5px;
             height: 200px;
-            background-size: cover;
+            top: 100px;
+            transform-origin: 10% 100%;
         }
 
-        .weather--cloudy {
-            background-image: url('https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-cloudy-icon-png-image_450295.jpg');
-            width: 200px;
-            height: 200px;
-            background-size: cover;
+        .arrow--hour {
+            background: blue;
+            transform: rotate(<?php print $hour;?>deg);
+        }
+
+        .arrow--minute {
+            background: red;
+            transform: rotate(<?php print $minute;?>deg);
+        }
+
+        .arrow--second {
+            background: green;
+            transform: rotate(<?php print $second;?>deg);
         }
     </style>
 </head>
 <body>
-
-<div class="weather <?php print $weather_class; ?>"></div>
-<p><?php print $weather_text; ?></p>
-
+<div class="clock-body">
+    <div class="arrow arrow--hour"></div>
+    <div class="arrow arrow--minute"></div>
+    <div class="arrow arrow--second"></div>
+</div>
 </body>
 </html
