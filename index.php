@@ -1,19 +1,16 @@
 <?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
-$years = rand(1991, 2020);
-
-if ($years % 400 === 0 || $years % 4 === 0 && $years % 100 !== 0) {
-    $type = 'Keliamieji';
-} else {
-    $type = 'Nekeliamieji';
-}
-
+$number = rand(0, 100000);
+$hours = floor($number / 3600);
+$minutes = floor(($number / 60) % 60);
+$seconds = $number % 60;
+$result= $hours . 'h ' . $minutes . 'min ' . $seconds . 's';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Keliamieji metai</title>
+    <title>Seconds converted</title>
     <style>
         body {
             display: flex;
@@ -24,8 +21,7 @@ if ($years % 400 === 0 || $years % 4 === 0 && $years % 100 !== 0) {
     </style>
 </head>
 <body>
-<h1>Ar metai yra keliamieji?</h1>
-<p>Dabar yra: <?php print $years ;?> metai</p>
-<h2>Šie metai yra: <?php print $type; ?></h2>
+<h1>Iš viso sekundžių: <?php print $number ;?></h1>
+<h2>Tai yra: <?php print $result; ?></h2>
 </body>
 </html>
