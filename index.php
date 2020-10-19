@@ -26,30 +26,26 @@
             height: 30px;
             margin: 0;
         }
-
+        .board {
+            margin: 50px auto;
+            width: 240px;
+            display: table;
+        }
+        .board > .box {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
     </style>
 </head>
 <body>
-<?php
-for ($i = 0; $i < 8; $i++) {
-    print '<div class="container">';
-    for ($j = 0; $j < 8; $j++) {
-        if ($i % 2 == 0) {
-            if ($j % 2 == 0) {
-                print '<div class="white"></div>';
-            } else {
-                print '<div class="black"></div>';
-            }
-        } else {
-            if ($j % 2 == 0) {
-                print '<div class="black"></div>';
-            } else {
-                print '<div class="white"></div>';
-            }
-        }
-    }
-    print "</div>";
-}
-?>
+<div class="board">
+    <?php for ($y = 0; $y < 8; $y++): ?>
+        <?php for ($x = 0; $x < 8; $x++): ?>
+            <div class="box <?= ($x + $y) % 2 == 0 ? 'black' : 'white' ?>"></div>
+        <?php endfor; ?>
+    <?php endfor; ?>
+</div>
 </body>
 </html>
