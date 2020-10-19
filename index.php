@@ -1,27 +1,28 @@
 <?php
-$months = 12;
-$wallet = 1000;
-$month_income = 700;
-
-for ($m = 1; $m <= $months; $m++) {
-    $month_expenses = rand(500, 1200);
-    $wallet += $month_income - $month_expenses;
-    $isvada = "Po $months m. prognozuojamas likutis: $wallet";
-    if ($wallet <= 0) {
-        $isvada = "Atsargiai, $m mėnesį gali baigtis pinigai!";
-        break;
-    }
-}
+$cards = rand(1, 6);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>No Moni</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 5px;
+            height: 300px;
+        }
+
+        .container {
+            background: red;
+        }
+    </style>
 </head>
 <body>
-<h1>Wallet Forecast</h1>
-<h2><?php print $isvada; ?></h2>
+<h1><?php print "Iš viso kortelių: $cards"; ?></h1>
+<?php for ($x = 1; $x <= $cards; $x++) :?>
+    <div class="container"><?php print $cards; ?></div>
+<?php endfor; ?>
 </body>
 </html>
-
