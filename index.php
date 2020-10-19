@@ -1,51 +1,65 @@
 <?php
-
+$table_height = 5;
+$table_width = 3;
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Checker board</title>
+    <title>Alphabet</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            background: pink;
+            text-align: center;
         }
-
-        .white {
-            background-color: white;
-            width: 30px;
-            height: 30px;
-            margin: 0;
-        }
-
-        .black {
-            background-color: black;
-            width: 30px;
-            height: 30px;
-            margin: 0;
-        }
-        .board {
+        .container {
             margin: 50px auto;
-            width: 240px;
-            display: table;
+            width: 400px;
         }
-        .board > .box {
-            width: 30px;
-            height: 30px;
+        .letter {
+            border: 1px solid gray;
+            margin: 10px;
+            padding: 10px;
+            line-height: 10px;
             display: inline-block;
-            vertical-align: top;
+        }
+        .letter .empty {
+            opacity: 0.1;
         }
     </style>
 </head>
 <body>
-<div class="board">
-    <?php for ($y = 0; $y < 8; $y++): ?>
-        <?php for ($x = 0; $x < 8; $x++): ?>
-            <div class="box <?= ($x + $y) % 2 == 0 ? 'black' : 'white' ?>"></div>
-        <?php endfor; ?>
-    <?php endfor; ?>
-</div>
-</body>
-</html>
+<div class="container">
+    <div class="letter a">
+        <?php
+        for ($x = 1; $x <= $table_height; $x++) {
+            for ($y = 1; $y <= $table_width; $y++) {
+                if ($x == 1 && $y == 2) {
+                    print ' • ';
+                } elseif ($x == 1 && ($y == 1 || $y == 3)) {
+                    print '<span class="empty"> • </span>';
+                }
+                if ($x == 2 && ($y == 1 || $y == 3)) {
+                    print ' • ';
+                } elseif ($x == 2 && $y == 2) {
+                    print '<span class="empty"> • </span>';
+                }
+                if ($x == 3 && ($y == 1 || $y == 2 || $y == 3)) {
+                    print ' • ';
+                } elseif ($x == 3 && ($y == 1 || $y == 3)) {
+                    print '<span class="empty"> • </span>';
+                }
+                if ($x == 4 && ($y == 1 || $y == 3)) {
+                    print ' • ';
+                } elseif ($x == 4 && $y == 2) {
+                    print '<span class="empty"> • </span>';
+                }
+                if ($x == 5 && ($y == 1 || $y == 3)) {
+                    print ' • ';
+                } elseif ($x == 5 && $y == 2) {
+                    print '<span class="empty"> • </span>';
+                }
+            }
+            print '</br>';
+        }
+        ?>
+    </div>
