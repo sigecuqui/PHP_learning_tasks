@@ -1,28 +1,20 @@
 <?php
-$cards = rand(1, 6);
+$height = rand(5, 30);
+
+for ($i = 1; $i <= $height; $i++) {
+    for ($j = 1; $j <= $height; $j++) {
+        print ' * ';
+    }
+    print '</br>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>No Moni</title>
-    <style>
-        body {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 5px;
-            height: 300px;
-        }
-
-        .container {
-            background: red;
-        }
-    </style>
+    <title>Stars</title>
 </head>
 <body>
-<h1><?php print "Iš viso kortelių: $cards"; ?></h1>
-<?php for ($x = 1; $x <= $cards; $x++) :?>
-    <div class="container"><?php print $cards; ?></div>
-<?php endfor; ?>
+
 </body>
 </html>
