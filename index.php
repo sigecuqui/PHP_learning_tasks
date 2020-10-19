@@ -1,18 +1,26 @@
 <?php
-$height = rand(5, 30);
+$stars = rand(1, 30);
 
-for ($i = 1; $i <= $height; $i++) {
-    for ($j = 1; $j <= $height; $j++) {
-        print ' * ';
+for ($i = 0; $i <= $stars; $i++) {
+    for ($j = 1; $j <= $i; $j++) {
+        print '* ';
     }
-    print '</br>';
+    print '<br>';
 }
+
+for ($i = 0; $i <= $stars; $i++) {
+    for ($j = $stars - $i; $j >= 1; $j--) {
+        echo '* ';
+    }
+    echo '<br>';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Stars</title>
+    <title>Triangle</title>
 </head>
 <body>
 
