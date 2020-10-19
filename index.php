@@ -3,11 +3,15 @@ $months = 12;
 $wallet = 1000;
 $month_income = 700;
 
-for ($x = 1; $x <= $months; $x++) {
-    $month_expenses = rand(500, 800);
+for ($m = 1; $m <= $months; $m++) {
+    $month_expenses = rand(500, 1200);
     $wallet += $month_income - $month_expenses;
+    $isvada = "Po $months m. prognozuojamas likutis: $wallet";
+    if ($wallet <= 0) {
+        $isvada = "Atsargiai, $m mėnesį gali baigtis pinigai!";
+        break;
+    }
 }
-$isvada = "Po $months m. prognozuojamas likutis: $wallet";
 ?>
 <!DOCTYPE html>
 <html lang="en">
