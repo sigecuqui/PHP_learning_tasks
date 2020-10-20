@@ -19,7 +19,7 @@ for ($i = 0; $i <= $days; $i++) {
     }
 }
 
-$price_ttl = $count_ttl * $pack_price / 20;
+$price_ttl = $count_ttl * ceil($pack_price / 20);
 $isvada = "Per $days dienas surūkysiu $count_ttl cigarečių už $price_ttl eur.";
 
 ?>
