@@ -1,27 +1,13 @@
 <?php
-$tracks = [
-    [
-        'available' => true,
-        'pins' => [
-            [true],
-            [false, false],
-            [false, false, false],
-            [true, true, true, true]
-        ],
-
-    ],
-    [
-        'available' => false,
-        'pins' => [
-            [false],
-            [false, false],
-            [false, false, false],
-            [false, false, false, false]
-        ],
-    ],
+$route = [
+    90,
+    -30,
+    60,
+    -150,
+    20
 ];
 
-var_dump($tracks);
+var_dump($route);
 ?>
 <html lang="en">
 <head>
