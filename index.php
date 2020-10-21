@@ -1,22 +1,33 @@
 <?php
-$ragaze = [
+$players = [
     [
-        'kiekis' => 2,
-        'dydis' => 'dideli',
-        'produktas' => 'kiausiai'
+        'name' => 'Petras Pizdys',
+        'item' =>
+            [
+                'name' => 'telefonitas',
+                'status' => 'pamestitas'
+            ]
     ],
     [
-        'kiekis' => 1,
-        'dydis' => 'mazas',
-        'produktas' => 'baklazanas'
+        'name' => 'Tomas Ablomas',
+        'item' =>
+            [
+                'name' => 'buljonas',
+                'status' => 'naudojamas'
+            ]
+
     ],
     [
-        'kiekis' => 1,
-        'dydis' => 'didelis',
-        'produktas' => 'grietines indelis']
+        'name' => 'Ana Shitkova',
+        'item' =>
+            [
+                'name' => 'rulonas',
+                'status' => 'pasibaiges'
+            ]
+    ]
 ];
 
-var_dump($ragaze);
+var_dump($players);
 ?>
 <html lang="en">
 <head>
