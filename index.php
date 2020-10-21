@@ -1,44 +1,27 @@
 <?php
-$saldytuvas = [
+$tracks = [
     [
-        [
-                'quantity' => 3,
-            'item' => 'kiausiai'
+        'status' => 'available',
+        'pins' => [
+            [true],
+            [false, false],
+            [false, false, false],
+            [true, true, true, true]
         ],
-        [
-            'quantity' => 1,
-            'item' => 'grietine'
-        ],
-        [
-            'quantity' => 2,
-            'item' => 'jogurtas'
-        ],
-        [
-            'quantity' => 0,
-            'item' => 'zuvis'
-        ]
+
     ],
     [
-        [
-            'quantity' => 1,
-            'item' => 'pienas'
+        'status' => 'unavailable',
+        'pins' => [
+            [false],
+            [false, false],
+            [false, false, false],
+            [false, false, false, false]
         ],
-        [
-            'quantity' => 0,
-            'item' => 'kefyras'
-        ],
-        [
-            'quantity' => 2,
-            'item' => 'degtine'
-        ],
-        [
-            'quantity' => 2,
-            'item' => 'kecupas'
-        ]
-    ]
+    ],
 ];
 
-var_dump($saldytuvas);
+var_dump($tracks);
 ?>
 <html lang="en">
 <head>
