@@ -1,7 +1,7 @@
 <?php
 $tracks = [
     [
-        'status' => 'available',
+        'available' => true,
         'pins' => [
             [true],
             [false, false],
@@ -11,7 +11,7 @@ $tracks = [
 
     ],
     [
-        'status' => 'unavailable',
+        'available' => false,
         'pins' => [
             [false],
             [false, false],
