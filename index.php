@@ -1,17 +1,17 @@
 <?php
 $ragaze = [
     [
-        'kiekis' => '2',
+        'kiekis' => 2,
         'dydis' => 'dideli',
         'produktas' => 'kiausiai'
     ],
     [
-        'kiekis' => '1',
+        'kiekis' => 1,
         'dydis' => 'mazas',
         'produktas' => 'baklazanas'
     ],
     [
-        'kiekis' => '1',
+        'kiekis' => 1,
         'dydis' => 'didelis',
         'produktas' => 'grietines indelis']
 ];
