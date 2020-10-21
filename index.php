@@ -1,23 +1,33 @@
 <?php
-$shades = 15;
+$months = 24;
+$car_price_new = 30000;
+$car_price_used = 30000;
+$depreciation = 2;
+$depr_perc = 0;
+
+for ($x = 0; $x < $months; $x++) {
+    $car_price_used *= (100 - $depreciation) / 100;
+}
+
+$depr_perc = number_format(($car_price_new - $car_price_used) * 100 / $car_price_new, 2);
+$used = number_format($car_price_used, 2);
+
+$h1 = "Mašina nuvertės";
+$h2 = "Naujos mašinos kaina: $car_price_new";
+$h3 = "Po $months mėn. mašinos vertė bus: $used eur.";
+$h4 = "Mašina nuvertės $depr_perc proc.";
 ?>
-<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Spalvos </title>
+    <title>Turgus</title>
     <style>
-        .block {
-            width: 300px;
-            height: 25px;
-        }
     </style>
 </head>
 <body>
-<?php for ($x = 0; $x < $shades; $x++) : ?>
-    <div class="block"
-         style="background-color: rgb(<?php print 255 * $x / $shades .', '; ?> 0, 0)"></div>
-<?php endfor; ?>
-<div></div>
+<h1><?php print $h1; ?></h1>
+<h2><?php print $h2; ?></h2>
+<h3><?php print $h3; ?></h3>
+<h4><?php print $h4; ?></h4>
 </body>
 </html>
