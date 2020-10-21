@@ -1,33 +1,44 @@
 <?php
-$players = [
+$saldytuvas = [
     [
-        'name' => 'Petras Pizdys',
-        'item' =>
-            [
-                'name' => 'telefonitas',
-                'status' => 'pamestitas'
-            ]
+        [
+                'quantity' => 3,
+            'item' => 'kiausiai'
+        ],
+        [
+            'quantity' => 1,
+            'item' => 'grietine'
+        ],
+        [
+            'quantity' => 2,
+            'item' => 'jogurtas'
+        ],
+        [
+            'quantity' => 0,
+            'item' => 'zuvis'
+        ]
     ],
     [
-        'name' => 'Tomas Ablomas',
-        'item' =>
-            [
-                'name' => 'buljonas',
-                'status' => 'naudojamas'
-            ]
-
-    ],
-    [
-        'name' => 'Ana Shitkova',
-        'item' =>
-            [
-                'name' => 'rulonas',
-                'status' => 'pasibaiges'
-            ]
+        [
+            'quantity' => 1,
+            'item' => 'pienas'
+        ],
+        [
+            'quantity' => 0,
+            'item' => 'kefyras'
+        ],
+        [
+            'quantity' => 2,
+            'item' => 'degtine'
+        ],
+        [
+            'quantity' => 2,
+            'item' => 'kecupas'
+        ]
     ]
 ];
 
-var_dump($players);
+var_dump($saldytuvas);
 ?>
 <html lang="en">
 <head>
