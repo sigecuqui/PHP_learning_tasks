@@ -9,7 +9,26 @@ $my_memories = [
     'Išpirkimas'
 ];
 
+$friend_memories = [
+    'Taksi',
+    'Baras',
+    'Jėzus',
+    'Bažnyčia',
+    'Tekilukė su kunigu',
+    'Sutana',
+    'Maldos'
+];
+
 $flashback_index = rand(0, count($my_memories) - 1);
+$common_memories = [];
+
+foreach ($my_memories as $memory) {
+    if (in_array($memory, $friend_memories, true) && !in_array($memory, $common_memories)) {
+       $common_memories[] = $memory;
+    }
+}
+var_dump($common_memories);
+
 $flashback_text = $my_memories[$flashback_index];
 $h3 = "Flashback $flashback_index : $flashback_text";
 ?>
@@ -28,5 +47,11 @@ $h3 = "Flashback $flashback_index : $flashback_text";
     <?php endforeach; ?>
 </ul>
 <h3><?php print $h3; ?></h3>
+<h3>Draugo prisiminimai</h3>
+<ul>
+    <?php foreach ($friend_memories as $memory) : ?>
+        <li><?php print $memory; ?></li>
+    <?php endforeach; ?>
+</ul>
 </body>
 </html>
